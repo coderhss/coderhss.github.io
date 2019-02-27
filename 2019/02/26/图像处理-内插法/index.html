@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>图像处理-内插法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 我的第一篇博客文章date: 2019-02-24 15:03:54 tags: 开篇第一章————————开始零零散散写一些博客，记录一下我的研究生的学习生活。———-">
+  <meta name="description" content="一、插值1.什么是插值插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。 我们举一个简单的例子来说明插值的原理。例如我们有以下数据  我们希望拟合出y">
+<meta name="keywords" content="图像处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/02/25/我的第一篇博客文章/index.html">
+<meta property="og:title" content="图像处理-内插法">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/图像处理-内插法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: 我的第一篇博客文章date: 2019-02-24 15:03:54 tags: 开篇第一章————————开始零零散散写一些博客，记录一下我的研究生的学习生活。———-">
+<meta property="og:description" content="一、插值1.什么是插值插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。 我们举一个简单的例子来说明插值的原理。例如我们有以下数据  我们希望拟合出y">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-25T05:41:00.104Z">
+<meta property="og:image" content="http://yoursite.com/img/1.png">
+<meta property="og:updated_time" content="2019-02-27T03:31:12.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="title: 我的第一篇博客文章date: 2019-02-24 15:03:54 tags: 开篇第一章————————开始零零散散写一些博客，记录一下我的研究生的学习生活。———-">
+<meta name="twitter:title" content="图像处理-内插法">
+<meta name="twitter:description" content="一、插值1.什么是插值插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。 我们举一个简单的例子来说明插值的原理。例如我们有以下数据  我们希望拟合出y">
+<meta name="twitter:image" content="http://yoursite.com/img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,14 +157,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-图像处理-内插法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      图像处理-内插法
+    </h1>
+  
+
+        
+        <a href="/2019/02/26/图像处理-内插法/" class="archive-article-date">
+  	<time datetime="2019-02-26T03:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: 我的第一篇博客文章<br>date: 2019-02-24 15:03:54</p>
-<h2 id="tags-开篇"><a href="#tags-开篇" class="headerlink" title="tags: 开篇"></a>tags: 开篇</h2><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>————————<br>开始零零散散写一些博客，记录一下我的研究生的学习生活。<br>———-</p>
+        <h1 id="一、插值"><a href="#一、插值" class="headerlink" title="一、插值"></a>一、插值</h1><h2 id="1-什么是插值"><a href="#1-什么是插值" class="headerlink" title="1.什么是插值"></a>1.什么是插值</h2><pre><code>插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。
+我们举一个简单的例子来说明插值的原理。例如我们有以下数据
+</code></pre><p><img src="\img\1.png" alt="图一"></p>
+<pre><code>我们希望拟合出y=f(x)的函数图像，但是我的得到的数据都是离散的，那么我们应该如何确定两个点之间缺失的函数值呢？
+</code></pre><h2 id="2-Lagrang插值"><a href="#2-Lagrang插值" class="headerlink" title="2.Lagrang插值"></a>2.Lagrang插值</h2><pre><code>插值的方法有很多，这里我们介绍Lagrange(拉格朗日)插值。假设我们拟合出的函数为p(x)首先我们应该明确我们拟合出的函数至少在我们的已知点上的数据是正确的，即：    
+</code></pre><p>$$p(x_i)=x_i  (其中i= 1,2,3，…)$$</p>
+<pre><code>那么我们需要构造一个多项式 
+</code></pre><p>$$l_k(x)$$</p>
+<pre><code>其满足
+</code></pre><p>$$l_k(x_0)=0,…,l_k(x_k-1),l_k(x_k)=1,l_k(x_k+1)=0,…,l_k(x_n)=0$$</p>
+<pre><code>经过求解可以得到一个满足上述条件的多项式：
+</code></pre><p>$$l_k(x)=</p>
 
       
 
@@ -191,6 +218,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -241,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/25/我的第一篇博客文章/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/26/图像处理-内插法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -255,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/02/26/图像处理-内插法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          图像处理-内插法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/02/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/02/25/我的第一篇博客文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
