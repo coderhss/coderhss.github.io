@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/3 | Hexo</title>
+  <title>广义交并比 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/index.html">
+  <meta name="description" content="一、概述交并比（Intersection over Union，简称IoU），是目标检测中的一个非常重要的概念，也是进行目标检测的一个重要方法。首先我们来简单了解一下交并比的概念。 黄色的是训练样本的真实边框，而另一个是神经网络的预测框，两个框的交集的面积与两个框的并集面积的比值称之为交并比。如果两个框的交并比越大大则说明目标定位约准确。在以往的目标检测算法中一般都是将两个框的坐标的范数，也就是图">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广义交并比">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/广义交并比/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、概述交并比（Intersection over Union，简称IoU），是目标检测中的一个非常重要的概念，也是进行目标检测的一个重要方法。首先我们来简单了解一下交并比的概念。 黄色的是训练样本的真实边框，而另一个是神经网络的预测框，两个框的交集的面积与两个框的并集面积的比值称之为交并比。如果两个框的交并比越大大则说明目标定位约准确。在以往的目标检测算法中一般都是将两个框的坐标的范数，也就是图">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/iou1.png">
+<meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/iou2.png">
+<meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/iou3.png">
+<meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/IOU.png">
+<meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/IoU4.png">
+<meta property="og:updated_time" content="2019-03-18T07:32:23.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="广义交并比">
+<meta name="twitter:description" content="一、概述交并比（Intersection over Union，简称IoU），是目标检测中的一个非常重要的概念，也是进行目标检测的一个重要方法。首先我们来简单了解一下交并比的概念。 黄色的是训练样本的真实边框，而另一个是神经网络的预测框，两个框的交集的面积与两个框的并集面积的比值称之为交并比。如果两个框的交并比越大大则说明目标定位约准确。在以往的目标检测算法中一般都是将两个框的坐标的范数，也就是图">
+<meta name="twitter:image" content="http://pngzmm1sz.bkt.clouddn.com/iou1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,36 +161,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-广义交并比" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      广义交并比
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/14/广义交并比/" class="archive-article-date">
+
+        
+        <a href="/2019/03/14/广义交并比/" class="archive-article-date">
   	<time datetime="2019-03-14T09:07:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/广义交并比/">广义交并比</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a><strong>一、概述</strong></h1><p><strong>交并比</strong>（Intersection over Union，简称IoU），是目标检测中的一个非常重要的概念，也是进行目标检测的一个重要方法。首先我们来简单了解一下交并比的概念。</p>
+<p><img src="http://pngzmm1sz.bkt.clouddn.com/iou1.png" alt="图一"><br>黄色的是训练样本的真实边框，而另一个是神经网络的预测框，两个框的交集的面积与两个框的并集面积的比值称之为交并比。如果两个框的交并比越大大则说明目标定位约准确。<strong>在以往的目标检测算法</strong>中一般都是将两个框的坐标的<strong>范数</strong>，也就是图中框框左上角的坐标的距离作为误差进行反向传播。那么为什么不能<strong>将IoU直接</strong>进行反向传播呢？IoU有一些缺点，例如，对于没有交集的两个框其IoU始终是0，这样的话在不想交的情况下，无法判断两个框之间的距离，不能返回足够的梯度使网络收敛。而且IoU是无法区别两个框子是否是对齐的。放一张图：</p>
+<p><img src="http://pngzmm1sz.bkt.clouddn.com/iou2.png" alt="图二"><br>可以直观的得出一个结论，即使是在范数相同的情况下，两个框的重合方式也是千差万别，导致了其交并比的不同，所以可以看出将交并比直接作为损失传回去似乎更加有效。</p>
+<p><strong>由于IoU的固有缺点</strong>，所以论文<a href="https://arxiv.org/pdf/1902.09630.pdf" target="_blank" rel="noopener">Generalized Intersection over Union</a>提出一种<strong>广义交并比</strong>（GIoU）的概念，主要就是解决了IoU作为loss回传时的缺点。</p>
+<h1 id="二、具体定义"><a href="#二、具体定义" class="headerlink" title="二、具体定义"></a><strong>二、具体定义</strong></h1><h3 id="首先给出IoU的定义："><a href="#首先给出IoU的定义：" class="headerlink" title="首先给出IoU的定义："></a><strong>首先给出IoU的定义：</strong></h3><script type="math/tex; mode=display">IoU=\frac{|A \cap B|}{|A \cup B|}</script><p>IoU有两个非常好的<strong>优点：</strong></p>
+<ul>
+<li>IoU是一种距离指标，$L_{IoU}=1-IoU$，具有非负性、不可分同一性、对称性和满足三角不等式等。</li>
+<li>规模不变性</li>
+</ul>
+<p>但是也有两个主要<strong>缺点：</strong></p>
+<ul>
+<li>如果$|A \cap B|=0$则IoU无法反映出A和B到底是比较靠近还是相距比较远。</li>
+<li>IoU不能反映出到底两个框是如何相交的。<br>贴一张原文中的图：</li>
+</ul>
+<p><img src="http://pngzmm1sz.bkt.clouddn.com/iou3.png" alt="图三"></p>
+<h3 id="现在给出GIoU的定义"><a href="#现在给出GIoU的定义" class="headerlink" title="现在给出GIoU的定义"></a><strong>现在给出GIoU的定义</strong></h3><p><img src="http://pngzmm1sz.bkt.clouddn.com/IOU.png" alt="图四"><br>其思想为，用一个<strong>最小的闭合图形</strong>C把A和B包含进来，<strong>计算C中除了A和B的面积与C的面积之比</strong>，<strong>GIoU就是IoU减去这个比值</strong>。</p>
+<ul>
+<li>GIoU也是一种距离，$L_{GIoU}=1-GIoU$，保留了IoU在这方面的一切优点。</li>
+<li>GIoU也具有规模不变性</li>
+<li>GIoU小于等于IoU且$\lim_{A\rightarrow B} GIoU(A,B)=IoU(A,B)$</li>
+<li>IoU的值域是0到1，而GIoU的值域是对称的为-1到1<ul>
+<li>当$|A\cap B|=|A\cup B|$时，$IoU=GIoU=1$</li>
+<li>$lim_{\frac{|A\cup B|}{|C|}\rightarrow 0}GIoU(A,B)=-1$</li>
+</ul>
+</li>
+<li>与IoU还有不同的一点是，IoU只关心两者之间的交集，而GIoU则还关心在C中A与B之外的空间，如果A和B不是对齐的话那么C就会变大，如图三所示。</li>
+</ul>
+<p><strong>可以看到无论A和B是否相交，GIoU都可以返回足够的梯度。</strong></p>
+<h3 id="losses计算方法"><a href="#losses计算方法" class="headerlink" title="losses计算方法"></a><strong>losses计算方法</strong></h3><p><img src="http://pngzmm1sz.bkt.clouddn.com/IoU4.png" alt="图五"></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,95 +250,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/14/广义交并比/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/05/matconvnet-源码阅读/" class="archive-article-date">
-  	<time datetime="2019-03-05T06:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/05/matconvnet-源码阅读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">matconvnet-源码阅读</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/05/matconvnet-源码阅读/">matconvnet-源码阅读</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cifar源码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/04/GAN网络/" class="archive-article-date">
-  	<time datetime="2019-03-04T11:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/04/GAN网络/">GAN网络</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -302,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
