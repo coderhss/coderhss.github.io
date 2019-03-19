@@ -152,6 +152,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C++处理类型之typedef、auto、decltype" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/19/C++处理类型之typedef、auto、decltype/">C++处理类型之typedef、using、auto、decltype</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/19/C++处理类型之typedef、auto、decltype/" class="archive-article-date">
+  	<time datetime="2019-03-19T00:51:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、类型别名"><a href="#一、类型别名" class="headerlink" title="一、类型别名"></a>一、类型别名</h1><p>C++11提供了两种方法用于定义类型别名</p>
+<ul>
+<li><p>typedef</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> wages;         <span class="comment">//wages是都double的别名</span></span><br><span class="line"><span class="keyword">typedef</span> wages base, *p;      <span class="comment">//base为double的别名，p是double*的别名</span></span><br></pre></td></tr></table></figure>
+<p>C++11标准中提出了一种新方法用来定义类型的别名</p>
+</li>
+<li><p>using</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> SI = Sales_item;  <span class="comment">//SI是Sales_item的别名</span></span><br></pre></td></tr></table></figure></li></ul>
+        
+          <a class="article-more-a" href="/2019/03/19/C++处理类型之typedef、auto、decltype/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/19/C++处理类型之typedef、auto、decltype/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-广义交并比" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -655,6 +738,10 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
