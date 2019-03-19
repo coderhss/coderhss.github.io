@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名  using 1using SI = Sales_item">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-19T06:13:27.968Z">
+<meta property="og:updated_time" content="2019-03-19T06:18:43.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++处理类型之typedef、using、auto、decltype">
 <meta name="twitter:description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名  using 1using SI = Sales_item">
@@ -197,14 +197,12 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> i = <span class="number">0</span>, *p = &amp;i;    <span class="comment">//正确</span></span><br><span class="line"><span class="keyword">auto</span> sz = <span class="number">0</span>, pi = <span class="number">3.14</span>; <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
 <p>在第一条语句中，i=0可以认为i是int，同时&amp;i对应的也是整型变量的指针，所以可以认为auto就等价于int。其正确性不言而喻。但是在第二条语句中，sz=0判断出sz为int，而pi=3.14又使得auto不能是int，所以编译不通过。</p>
 <h3 id="复合类型、常量和auto"><a href="#复合类型、常量和auto" class="headerlink" title="复合类型、常量和auto"></a>复合类型、常量和auto</h3><p>编译器推断的auto类型有时候和初始值的类型并不完全一样，编译器会适当地改变结果类型。</p>
-<ul>
+</li>
 <li><p>对于引用，在绝大多数情况下（有一个地方是例外下面会讲到）可以认为对引用的操作就是对与其绑定的对象的操作，所以如果引用被用作初始化时，实际上参与的是其绑定的对象，编译器判断的类型就是这个对象的类型而不是引用。</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">int</span> i = <span class="number">0</span>, &amp;r = i;</span><br><span class="line"><span class="keyword">auto</span> a = r;   <span class="comment">//a是int型而不是int&amp;</span></span><br></pre></td></tr></table></figure>
+   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">int</span> i = <span class="number">0</span>, &amp;r = i;</span><br><span class="line"><span class="keyword">auto</span> a = r;   <span class="comment">//a是int型而不是int&amp;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>auto一般会忽略掉顶层const，底层const则会被保留</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = i, &amp;cr = ci;</span><br><span class="line"><span class="keyword">auto</span> b = ci;    <span class="comment">//b是一个整数（ci的顶层指针被忽略掉了）</span></span><br><span class="line"><span class="keyword">auto</span> c = cr;    <span class="comment">//引用等价于对其绑定的对象的操作</span></span><br><span class="line"><span class="keyword">auto</span> d = &amp;i； <span class="comment">//d是整型指针（整数的地址对应整型指针）</span></span><br><span class="line"><span class="keyword">auto</span> e = &amp;ci；<span class="comment">//e是一个指向整数常量的指针（对常量取地址是一个底层的const）</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = i, &amp;cr = ci;</span><br><span class="line"><span class="keyword">auto</span> b = ci;    <span class="comment">//b是一个整数（ci的顶层指针被忽略掉了）</span></span><br><span class="line"><span class="keyword">auto</span> c = cr;    <span class="comment">//引用等价于对其绑定的对象的操作</span></span><br><span class="line"><span class="keyword">auto</span> d = &amp;i； <span class="comment">//d是整型指针（整数的地址对应整型指针）</span></span><br><span class="line"><span class="keyword">auto</span> e = &amp;ci；<span class="comment">//e是一个指向整数常量的指针（对常量取地址是一个底层的const）</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果希望推断出的auto是一个顶层const，需要明确指出：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> f = ci;  <span class="comment">//ci推出是int，所以是const int</span></span><br></pre></td></tr></table></figure>
@@ -224,7 +222,7 @@
 </ul>
 </li>
 </ul>
-<p>看到第三行会觉得很奇怪，为什么获得的类型是int&amp;呢？这是因为对<em>p的结果就是i的值，并且能够进行读写，这于引用时等价的，所以对指针的解引用就得到了引用类型。<br><em>*还有一个需要突出强调的</em></em>是如果decltype使用一个加了括号的变量，那么这个变量将会被当做表达式处理，由于变量可以作为赋值语句的左值，则会返回一个引用类型：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>((i)) d;  <span class="comment">//错误，d是int&amp;，必须初始化</span></span><br><span class="line"><span class="keyword">decltype</span>（i）e; <span class="comment">//正确，e是一个int</span></span><br></pre></td></tr></table></figure></p>
+<p>看到第三行会觉得很奇怪，为什么获得的类型是int&amp;呢？这是因为对<em> p的结果就是i的值，并且能够进行读写，这于引用时等价的，所以对指针的解引用就得到了引用类型。<br><em>*还有一个需要突出强调的</em></em>是如果decltype使用一个加了括号的变量，那么这个变量将会被当做表达式处理，由于变量可以作为赋值语句的左值，则会返回一个引用类型：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>((i)) d;  <span class="comment">//错误，d是int&amp;，必须初始化</span></span><br><span class="line"><span class="keyword">decltype</span>（i）e; <span class="comment">//正确，e是一个int</span></span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -482,11 +480,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">cifar源码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cifar源码</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
