@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>图像处理-内插法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、插值1.什么是插值 插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。    我们举一个简明的例子来说明插值的原理。例如我们有以下数据   我们">
+  <meta name="description" content="一、插值">
 <meta name="keywords" content="图像处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像处理-内插法">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/图像处理-内插法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、插值1.什么是插值 插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。    我们举一个简明的例子来说明插值的原理。例如我们有以下数据   我们">
+<meta property="og:description" content="一、插值">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/1.png">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/CV2.png">
@@ -32,10 +32,10 @@
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/biliner3.png">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/biliner4.png">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/lina3.png">
-<meta property="og:updated_time" content="2019-12-30T12:59:35.604Z">
+<meta property="og:updated_time" content="2019-12-30T13:07:39.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图像处理-内插法">
-<meta name="twitter:description" content="一、插值1.什么是插值 插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。    我们举一个简明的例子来说明插值的原理。例如我们有以下数据   我们">
+<meta name="twitter:description" content="一、插值">
 <meta name="twitter:image" content="http://pngzmm1sz.bkt.clouddn.com/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -192,8 +192,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="一、插值"><a href="#一、插值" class="headerlink" title="一、插值"></a>一、插值</h1><h2 id="1-什么是插值"><a href="#1-什么是插值" class="headerlink" title="1.什么是插值"></a>1.什么是插值</h2><p> 插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。<br>    我们举一个简明的例子来说明插值的原理。例如我们有以下数据</p>
+        <h1 id="一、插值"><a href="#一、插值" class="headerlink" title="一、插值"></a>一、插值</h1><a id="more"></a>
+<h2 id="1-什么是插值"><a href="#1-什么是插值" class="headerlink" title="1.什么是插值"></a>1.什么是插值</h2><p> 插值是数值分析中的一个重要内容。由于在计算机中数据都是离散的，所以对于连续数据是没有办法直接处理的，例如：在图像的缩放以及旋转操作中，由于在现实世界数据是可以连续的所以我们队图像旋转这种操作是非常简单的。但是在计算机中执行这种操作后，新图像的某些像素点会有缺失，所以利用插值，将这些缺失的点进行填充。<br>    我们举一个简明的例子来说明插值的原理。例如我们有以下数据</p>
 <p><img src="http://pngzmm1sz.bkt.clouddn.com/1.png" alt="图一"><br>  我们希望拟合出y=f(x)的函数图像，但是我的得到的数据都是离散的，那么我们应该如何确定两个点之间缺失的函数值呢？</p>
 <h2 id="2-Lagrang插值"><a href="#2-Lagrang插值" class="headerlink" title="2.Lagrang插值"></a>2.Lagrang插值</h2><p>   插值的方法有很多，这里我们介绍Lagrange(拉格朗日)插值。假设我们拟合出的函数为p(x)首先我们应该明确我们拟合出的函数至少在我们的已知点上的数据是正确的，即:</p>
 <script type="math/tex; mode=display">p(x_i)=x_i   (其中i= 1,2,3，...)</script><p>那么我们需要构造一个多项式 $l_k(x)$其满足</p>
@@ -470,11 +470,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">cifar源码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cifar源码</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
