@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>python笔记--迭代器和生成器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="一、迭代器（iterator）1.Python中的for循环Python中没有C风格的for循环，Python的for循环没有索引变量，没有索引变量初始化，边界检查，索引递增。Python的for循环完成了遍历的所有工作。Python中的for循环机制与C语言中的实现机制有很大不同。Python中使用迭代器驱动for循环。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python笔记--迭代器和生成器">
+<meta property="og:url" content="http://yoursite.com/2019/12/30/python笔记-迭代器和生成器/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、迭代器（iterator）1.Python中的for循环Python中没有C风格的for循环，Python的for循环没有索引变量，没有索引变量初始化，边界检查，索引递增。Python的for循环完成了遍历的所有工作。Python中的for循环机制与C语言中的实现机制有很大不同。Python中使用迭代器驱动for循环。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-30T12:49:28.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="python笔记--迭代器和生成器">
+<meta name="twitter:description" content="一、迭代器（iterator）1.Python中的for循环Python中没有C风格的for循环，Python的for循环没有索引变量，没有索引变量初始化，边界检查，索引递增。Python的for循环完成了遍历的所有工作。Python中的for循环机制与C语言中的实现机制有很大不同。Python中使用迭代器驱动for循环。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,36 +155,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python笔记-迭代器和生成器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/30/python笔记-迭代器和生成器/" class="archive-article-date">
-  	<time datetime="2019-12-30T07:39:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/30/python笔记-迭代器和生成器/">python笔记--迭代器和生成器</a>
+    <h1 class="article-title" itemprop="name">
+      python笔记--迭代器和生成器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/12/30/python笔记-迭代器和生成器/" class="archive-article-date">
+  	<time datetime="2019-12-30T07:39:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、迭代器（iterator）"><a href="#一、迭代器（iterator）" class="headerlink" title="一、迭代器（iterator）"></a>一、迭代器（iterator）</h1><h2 id="1-Python中的for循环"><a href="#1-Python中的for循环" class="headerlink" title="1.Python中的for循环"></a>1.Python中的for循环</h2><p>Python中没有C风格的for循环，Python的for循环没有索引变量，没有索引变量初始化，边界检查，索引递增。Python的for循环完成了遍历的所有工作。Python中的for循环机制与C语言中的实现机制有很大不同。Python中使用迭代器驱动for循环。</p>
+<a id="more"></a>
+<h2 id="2-可迭（iterable）对象和序列"><a href="#2-可迭（iterable）对象和序列" class="headerlink" title="2.可迭（iterable）对象和序列"></a>2.可迭（iterable）对象和序列</h2><p><font color="red">可迭代对象</font>是Python中<strong>任何可以使用for进行遍历</strong>的东西。可迭代也就是可遍历。并且可迭代对象都实现了<strong>iter</strong> 方法，此方法返回一个迭代器。迭代器实现了<strong>iter</strong>方法和<strong>next</strong>方法，前者用于返回迭代器自身，后者用于返回容器中的下一个值，如果容器中没有更多的元素，则抛出StopIteration异常。</p>
+<h2 id="3-工作方式和使用方法"><a href="#3-工作方式和使用方法" class="headerlink" title="3.工作方式和使用方法"></a>3.工作方式和使用方法</h2><p>我们可以使用Python的内置<font color="red">iter</font>函数来访问迭代器，一旦有了迭代器，我们可以做的唯一的事情就是通过将他传递给<font color="red">next</font>函数来获取他的下一项。迭代器是有状态的，也就是说一旦你消耗了一项，这一项就会消失，是一次性的。示例代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fib</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,max)</span>:</span></span><br><span class="line">        self.n = <span class="number">0</span></span><br><span class="line">        self.prev = <span class="number">0</span></span><br><span class="line">        self.curr = <span class="number">1</span></span><br><span class="line">        self.max = max</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">            value = self.curr</span><br><span class="line">            self.curr += self.prev</span><br><span class="line">            self.prev = value</span><br><span class="line">            self.n += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用</span></span><br><span class="line">f = Fib(<span class="number">5</span>)</span><br><span class="line">print(next(f))</span><br><span class="line">print(next(f))</span><br><span class="line">print(next(f))</span><br><span class="line">print(next(f))</span><br><span class="line">print(next(f))</span><br><span class="line">print(next(f))</span><br><span class="line">结果：</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/Git/Test_Framework/utils/1.py"</span>, line <span class="number">37</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(next(f))</span><br><span class="line">  File <span class="string">"D:/Git/Test_Framework/utils/1.py"</span>, line <span class="number">29</span>, <span class="keyword">in</span> __next__</span><br><span class="line">    <span class="keyword">raise</span> StopIteration</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure></p>
+<h1 id="二、生成器（generator）"><a href="#二、生成器（generator）" class="headerlink" title="二、生成器（generator）"></a>二、生成器（generator）</h1><h2 id="1-为什么要有生成器"><a href="#1-为什么要有生成器" class="headerlink" title="1.为什么要有生成器"></a>1.为什么要有生成器</h2><p>列表中的数据都存放在内存中，假如有海量的数据将会非常耗内存。如果列表中的元素可以按照某种算法推算出来，那么就可以在程序执行的过程中不断推算出后续的元素，而不必创建完整的list，从而节省大量的内存空间。生成器是一个特殊的程序，可以被用作控制循环的迭代行为，python中生成器是迭代器的一种，使用yield返回值函数，每次调用yield会暂停，而可以使用next()函数和send()函数恢复生成器。</p>
+<h2 id="2-创建一个生成器"><a href="#2-创建一个生成器" class="headerlink" title="2.创建一个生成器"></a>2.创建一个生成器</h2><p>要创建一个生成器有很多种方法，第一种方法很简单，只要把列表生成式的[]改成()即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列表生成式</span></span><br><span class="line">lis = [x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">print(lis)</span><br><span class="line"><span class="comment">#生成器</span></span><br><span class="line">generator_ex = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line">print(generator_ex)</span><br><span class="line"> </span><br><span class="line">结果：</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]</span><br><span class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x000002A4CBF9EBA0</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>可以看到打印generator_ex生成的是一个生成器，如果需要打印元素需要next方法进行打印</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成器</span></span><br><span class="line">generator_ex = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">print(next(generator_ex))</span><br><span class="line">结果：</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">49</span></span><br><span class="line"><span class="number">64</span></span><br><span class="line"><span class="number">81</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line"> </span><br><span class="line">  File <span class="string">"列表生成式.py"</span>, line <span class="number">42</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"> </span><br><span class="line">    print(next(generator_ex))</span><br><span class="line"> </span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure>
+<p>因为生成器也是一个迭代器，所以其方法与迭代器一样。不过在实际使用时一般不会像上述代码一样进行输出，一般会采用for循环进行输出，因为generator也是可迭代对象，所以一定可以使用for循环进行遍历。而且不会产生StopIteration异常。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成器</span></span><br><span class="line">generator_ex = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> generator_ex:</span><br><span class="line">    print(i)</span><br><span class="line">     </span><br><span class="line">结果：</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">49</span></span><br><span class="line"><span class="number">64</span></span><br><span class="line"><span class="number">81</span></span><br></pre></td></tr></table></figure>
+<p>下面使用生成器来实现斐波拉契数列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(max)</span>:</span></span><br><span class="line">    n,a,b =<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">        <span class="keyword">yield</span> b</span><br><span class="line">        a,b =b,a+b</span><br><span class="line">        n = n+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'done'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fib(<span class="number">6</span>):</span><br><span class="line">    print(i)</span><br><span class="line">     </span><br><span class="line">结果：</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<p>说一下生成器的执行流程，函数是顺序执行的，遇到return语句或者是最后一行函数语句就会返回。而变成生成器之后的函数，在每次调用next()的时候执行，遇到yield语句返回，当再次调用next()时则会从yield处继续执行，相当于遇到yield就会产生一个中断，并且保存当前状态，再次调用next()中断返回继续执行。这样做的好处就是用多少，取多少，不占内存。</p>
+<p>生成器中还有一个重要的方法send()，和next()一样都能让生成器继续从yield处继续执行，但是send()能够对生成器进行传值，例如a = yield 5，在第一次迭代时，返回5但是a还没有赋值，如果使用send(10)再次调用则程序继续运行，a将会被赋值为10。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,257 +230,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/30/python笔记-迭代器和生成器/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/30/pytorch学习笔记-1-DataLoader/" class="archive-article-date">
-  	<time datetime="2019-12-30T07:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/30/pytorch学习笔记-1-DataLoader/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pytorch学习笔记(1)--DataLoader</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/30/pytorch学习笔记-1-DataLoader/">pytorch学习笔记(1)--DataLoader</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/C++处理类型之typedef、auto、decltype/" class="archive-article-date">
-  	<time datetime="2019-03-19T00:51:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/C++处理类型之typedef、auto、decltype/">C++处理类型之typedef、using、auto、decltype</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/14/广义交并比/" class="archive-article-date">
-  	<time datetime="2019-03-14T09:07:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/广义交并比/">广义交并比</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/05/matconvnet-源码阅读/" class="archive-article-date">
-  	<time datetime="2019-03-05T06:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/05/matconvnet-源码阅读/">matconvnet-源码阅读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cifar源码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/04/GAN网络/" class="archive-article-date">
-  	<time datetime="2019-03-04T11:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/04/GAN网络/">GAN网络</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/26/图像处理-内插法/" class="archive-article-date">
-  	<time datetime="2019-02-26T03:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/图像处理-内插法/">图像处理-内插法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/25/我的第一篇博客文章/" class="archive-article-date">
-  	<time datetime="2019-02-25T05:41:00.104Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -464,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

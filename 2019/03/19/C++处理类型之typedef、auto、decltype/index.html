@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C++处理类型之typedef、using、auto、decltype | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名  using 1using SI = Sales_item">
+  <meta name="description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++处理类型之typedef、using、auto、decltype">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/C++处理类型之typedef、auto、decltype/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名  using 1using SI = Sales_item">
+<meta property="og:description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-19T06:18:43.642Z">
+<meta property="og:updated_time" content="2019-12-30T12:50:26.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++处理类型之typedef、using、auto、decltype">
-<meta name="twitter:description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名  using 1using SI = Sales_item">
+<meta name="twitter:description" content="一、类型别名C++11提供了两种方法用于定义类型别名  typedef 12typedef double wages;         //wages是都double的别名typedef wages base, *p;      //base为double的别名，p是double*的别名 C++11标准中提出了一种新方法用来定义类型的别名">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -180,10 +180,10 @@
 <li><p>typedef</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> wages;         <span class="comment">//wages是都double的别名</span></span><br><span class="line"><span class="keyword">typedef</span> wages base, *p;      <span class="comment">//base为double的别名，p是double*的别名</span></span><br></pre></td></tr></table></figure>
 <p>C++11标准中提出了一种新方法用来定义类型的别名</p>
+<a id="more"></a>
 </li>
 <li><p>using</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> SI = Sales_item;  <span class="comment">//SI是Sales_item的别名</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h3 id="指针、常量和类型别名"><a href="#指针、常量和类型别名" class="headerlink" title="指针、常量和类型别名"></a>指针、常量和类型别名</h3><p>如果某个类型别名指代的是符合类型或者是常量，那么把它用到声明语句中会产生意想不到的结果。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> *pstring;</span><br><span class="line"><span class="keyword">const</span> pstring cstr = <span class="number">0</span>;  <span class="comment">//cstr是指向char的常量指针（顶层const）</span></span><br><span class="line"><span class="keyword">const</span> pstring *p;    <span class="comment">//ps是一个指针，它的对象是指向char的常量指针(底层const)</span></span><br></pre></td></tr></table></figure>
 <p><strong>在这里需要十分强调的一点就是</strong>这里与将pstring用char*替换得到的结果是不一样的，具体来说如果我们进行一个简单的替换：</p>
@@ -326,6 +326,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/12/30/pytorch学习笔记-1-DataLoader/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          pytorch学习笔记(1)--DataLoader
+        
+      </div>
+    </a>
   
   
     <a href="/2019/03/14/广义交并比/" id="article-nav-older" class="article-nav-link-wrap">
@@ -485,6 +494,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
