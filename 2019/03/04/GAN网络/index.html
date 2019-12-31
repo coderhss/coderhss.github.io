@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>GAN网络 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述">
+  <meta name="description" content="———Bryan">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAN网络">
 <meta property="og:url" content="http://yoursite.com/2019/03/04/GAN网络/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、概述">
+<meta property="og:description" content="———Bryan">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/gan1.png">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/gan2.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/gan4.png">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/gan5.png">
 <meta property="og:image" content="http://pngzmm1sz.bkt.clouddn.com/gan6.png">
-<meta property="og:updated_time" content="2019-12-30T13:06:52.045Z">
+<meta property="og:updated_time" content="2019-12-31T01:19:41.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GAN网络">
-<meta name="twitter:description" content="一、概述">
+<meta name="twitter:description" content="———Bryan">
 <meta name="twitter:image" content="http://pngzmm1sz.bkt.clouddn.com/gan1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -182,8 +182,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><a id="more"></a>
-<p>　　<strong>GAN</strong>(Generative Adversarial Nets,对抗生成网络)，近两年在深度学习领域十分的火爆，cvpr2018有近三分之一的论文与GAN相关。最近新闻上非常火爆的AI换脸技术、AI写诗等就是基于GAN，可以说GAN赋予了机器以创造力。GAN的开山之作是Ian J. Goodfellow在2014年于NIPS上发表的一篇文章：<a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">Generative Adversarial Nets</a>以及<a href="https://github.com/goodfeli/adversarial" target="_blank" rel="noopener">官方源码</a>（点击超链接可下载）。<br> 如果让你设计一个模型，让神经网络能够生成一个手写数字的图片，你会怎么设计呢？Ian J. Goodfellow就给出了一种十分巧妙的模型。在这个模型中包含一个生成模型G和一个判别模型(就是一个分类器)D。同时训练这两个模型，G的任务就是生成一张图片但是至于生成的图片是不是符合要求的就不知道了，而D的任务就是判断G生成的图片与要求的图片的差距，然后将误差传回让G学习。在网上看到一个比较通俗的解释：G就是一个造假币的团伙，D就是专门查假币的警察。首先团伙造出一些假币来骗警察，但是警察一下就查出来了，那么犯罪团伙就提升造假币的水平，警察也在提升甄别假币的水平。最终犯罪团伙就拥有了高超的造假币的能力，足以以假乱真。<br>　<img src="http://pngzmm1sz.bkt.clouddn.com/gan1.png" alt="图一"><br> 你能不能上面的图中哪些是机器生成的，哪些是真实的图片？最右边一列是真实的吗？答案是上面的图片都是机器生成的！由左至右是训练的时间越久，可以看到当训练足够的时间，人眼似乎已经开始难以分辨真假了。</p>
+        <h3 id="———Bryan"><a href="#———Bryan" class="headerlink" title="———Bryan"></a><strong>———Bryan</strong></h3><a id="more"></a>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>　　<strong>GAN</strong>(Generative Adversarial Nets,对抗生成网络)，近两年在深度学习领域十分的火爆，cvpr2018有近三分之一的论文与GAN相关。最近新闻上非常火爆的AI换脸技术、AI写诗等就是基于GAN，可以说GAN赋予了机器以创造力。GAN的开山之作是Ian J. Goodfellow在2014年于NIPS上发表的一篇文章：<a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">Generative Adversarial Nets</a>以及<a href="https://github.com/goodfeli/adversarial" target="_blank" rel="noopener">官方源码</a>（点击超链接可下载）。<br> 如果让你设计一个模型，让神经网络能够生成一个手写数字的图片，你会怎么设计呢？Ian J. Goodfellow就给出了一种十分巧妙的模型。在这个模型中包含一个生成模型G和一个判别模型(就是一个分类器)D。同时训练这两个模型，G的任务就是生成一张图片但是至于生成的图片是不是符合要求的就不知道了，而D的任务就是判断G生成的图片与要求的图片的差距，然后将误差传回让G学习。在网上看到一个比较通俗的解释：G就是一个造假币的团伙，D就是专门查假币的警察。首先团伙造出一些假币来骗警察，但是警察一下就查出来了，那么犯罪团伙就提升造假币的水平，警察也在提升甄别假币的水平。最终犯罪团伙就拥有了高超的造假币的能力，足以以假乱真。<br>　<img src="http://pngzmm1sz.bkt.clouddn.com/gan1.png" alt="图一"><br> 你能不能上面的图中哪些是机器生成的，哪些是真实的图片？最右边一列是真实的吗？答案是上面的图片都是机器生成的！由左至右是训练的时间越久，可以看到当训练足够的时间，人眼似乎已经开始难以分辨真假了。</p>
 <h1 id="二、再深一步"><a href="#二、再深一步" class="headerlink" title="二、再深一步"></a>二、再深一步</h1><p>我们来看一下GAN的损失函数吧：</p>
 <script type="math/tex; mode=display">\min_{G}\max_{D}V(D,G)=\mathbb{E}_{x~p_{data}(x)}[logD(x)]+\mathbb{E}_{z~p_z(z)} [log(1-D(G(z)))]</script><p>（markdown中符号~显示不出来，很难受）式中：x是真实样本，z为用来让G生成的虚假样本的一个序列。</p>
 <p>上述公式乍一看很复杂，但是仔细研究一下会发现其实非常简洁而且含义明确。首先这是一个最大最小化问题，不是一步就能完成的，首先固定生成器G不变来更新D。我们先看$\max_{D}$首先判别器D的输出只有1或0，即如果真实样本x与假样本z相同则输出1否则则输出0。毫无疑问我们希望判别器的判断越准确越好，即在公式的第一项中希望D(x)为1，也就是使得第一项变大，同时希望D(G(z))为0，同样使得第二项也达到最大。同样的，我们固定判别器D不变来优化G，首先因为D已经固定所以公式第一项不变，那么对于生成器G来说希望生成的数据被D判定为真实样本，即D(G(z))=1,即为上述公式的最小值。<br>所以，这样看来上述公式把一个复杂的过程用一个非常简洁的公式表达出来了，不得不佩服作者的数学功底。</p>
